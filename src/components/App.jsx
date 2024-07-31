@@ -1,4 +1,4 @@
-import "./App.css";
+import "../styles/App.scss";
 import ListCountries from "./ListCountries";
 import listData from "../services/Data.json";
 import Filters from "./Filters";
@@ -17,9 +17,9 @@ function App() {
 
   return (
     <>
-      <header>
+      <header className="header">
         <h1 className="title">Aplicación de información de países</h1>
-        <h2>Explora información de países, capitales y banderas</h2>
+        <h2 className="second-title">Explora información de países, capitales y banderas</h2>
       </header>
       <main>
         <Filters onChangeFilter={changeFilterValue} />
