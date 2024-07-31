@@ -12,7 +12,7 @@ function App() {
   };
 
   const filteredProducts = listData.filter((product) => {
-    return product.name.official.toLowerCase().includes(filterValue.toLowerCase());
+    return product.name.official.toLowerCase().includes(filterValue);
   });
 
   return (

@@ -6,6 +6,7 @@ function Filters(props) {
   });
   console.log(formulario);
   const continentes = [
+    "Todos los países",
     "África",
     "Antártida",
     "Asia",
@@ -27,14 +28,15 @@ function Filters(props) {
 
   return (
     <div className="filters">
-      <h2>Filtros</h2>
+      <h2 className="label">Filtros</h2>
       <form>
         <div>
-          <label htmlFor="name">Escribe un país:</label>
+          <label htmlFor="filterCountry" className="label">Escribe un país:</label>
           <input
             type="text"
-            id="name"
+            id="filterCountry"
             name="name"
+            placeholder="Escribe aquí el país"
             value={formulario.name}
             onChange={handleInputChange}
             required
@@ -42,7 +44,7 @@ function Filters(props) {
         </div>
 
         <div>
-          <label htmlFor="continenteSeleccionado">
+          <label htmlFor="continenteSeleccionado" className="label">
             Selecciona un continente:
           </label>
           <select
