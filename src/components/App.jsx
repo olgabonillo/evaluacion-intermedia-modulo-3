@@ -12,7 +12,7 @@ function App() {
   };
 
   const filteredProducts = listData.filter((product) => {
-    return product.name.toLowerCase().includes(filterValue.toLowerCase());
+    return product.name.official.toLowerCase().includes(filterValue.toLowerCase());
   });
 
   return (
@@ -23,7 +23,7 @@ function App() {
       </header>
       <main>
         <Filters onChangeFilter={changeFilterValue} />
-        <ListCountries products={filteredProducts} />
+        <ListCountries countries={filteredProducts} />
       </main>
     </>
   );

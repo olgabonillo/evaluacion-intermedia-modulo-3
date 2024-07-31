@@ -1,11 +1,10 @@
 import { useState } from "react";
 
-function Filters() {
+function Filters(props) {
   const [formulario, setFormulario] = useState({
     continenteSeleccionado: "",
   });
-
-  
+  console.log(formulario);
   const continentes = [
     "África",
     "Antártida",
@@ -15,8 +14,9 @@ function Filters() {
     "Oceanía",
     "Sudamérica",
   ];
-
+  console.log(props);
   const handleInputChange = (event) => {
+    props.onChangeFilter(event.target.value);
     const { name, value } = event.target;
     setFormulario({
       ...formulario,
@@ -24,29 +24,18 @@ function Filters() {
     });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    
-    if (formulario.continenteSeleccionado === "") {
-      alert("Por favor selecciona un continente.");
-      return;
-    }
-    alert(
-      `Continente Seleccionado: ${formulario.continenteSeleccionado}`
-    );
-  };
 
   return (
     <div className="filters">
       <h2>Filtros</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div>
-          <label htmlFor="nombre">Escribe un país:</label>
+          <label htmlFor="name">Escribe un país:</label>
           <input
             type="text"
-            id="nombre"
-            name="nombre"
-            value={formulario.nombre}
+            id="name"
+            name="name"
+            value={formulario.name}
             onChange={handleInputChange}
             required
           />
@@ -75,4 +64,5 @@ function Filters() {
     </div>
   );
 }
+
 export default Filters;

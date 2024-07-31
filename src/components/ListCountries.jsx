@@ -1,6 +1,14 @@
-function ListCountries() {
+import Country from "./Country";
+
+function ListCountries(props) {
   return (
-    <div></div>
+    <section>
+      <ul className="product-list">
+        {props.countries.map((country, index) => {
+          return <Country key={index} countryInfo={country} />;
+        })}
+      </ul>
+    </section>
   )
 }
 
